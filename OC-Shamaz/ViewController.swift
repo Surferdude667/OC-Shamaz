@@ -23,7 +23,7 @@ class ViewController: UIViewController {
         var result: String
         var ago = ""
 
-        //  Check if the request is on "future" or "past" and asign the propper data.
+        //  Check if the request is on "future" or "past" and asigns the propper data to the variables.
         if futureOrPast == "past" {
             ago = " ago"
             sentences = pastSentences
@@ -31,7 +31,7 @@ class ViewController: UIViewController {
             sentences = futureSentences
         }
         
-        //  Generate the possible answers and put them into an array.
+        //  Generates and adds all possible number combinations and the correct timeframes to the "timeFrame" array.
         for n in 1...10 {
             if n == 1 {
                 timeFrame.append(contentsOf: ["\(n) day\(ago)?","\(n) week\(ago)?", "\(n) year\(ago)?", "\(n) month\(ago)?"])
@@ -40,7 +40,7 @@ class ViewController: UIViewController {
             }
         }
         
-        //  Select a random element from the sentences and time frame and combine them into a string.
+        //  Selects a random element from the "sentences" and "timeFrame" and combine them into a string.
         result = "\(sentences.randomElement()!) \(timeFrame.randomElement()!)"
         
         return result
@@ -55,4 +55,3 @@ class ViewController: UIViewController {
     }
     
 }
-
