@@ -10,6 +10,9 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet var questionLabel: UILabel!
+    
+    
     //  Generates a random sentence from either the past or for the future based on the input.
     //  The function accepts either "past" or "future" as an argument.
     func generateSentence(futureOrPast: String) -> String {
@@ -43,6 +46,13 @@ class ViewController: UIViewController {
         return result
     }
 
-
+    @IBAction func pastButton(_ sender: Any) {
+        questionLabel.text = generateSentence(futureOrPast: "past")
+    }
+    
+    @IBAction func futureButton(_ sender: Any) {
+        questionLabel.text = generateSentence(futureOrPast: "future")
+    }
+    
 }
 
