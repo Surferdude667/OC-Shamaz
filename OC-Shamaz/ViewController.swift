@@ -47,16 +47,7 @@ class ViewController: UIViewController {
         return result
     }
     
-    // Selects a random number that is used to select a player
-    func selectPlayer() -> String {
-        var players = [String]()
-        for n in 1...10 {
-            players.append("\(n)")
-        }
-        return players.randomElement()!
-    }
     
-
     @IBAction func pastButton(_ sender: Any) {
         questionLabel.text = generateSentence(futureOrPast: "past")
     }
@@ -66,7 +57,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func playerButton(_ sender: Any) {
-        playerLabel.text = selectPlayer()
+        playerLabel.text = "\(Int.random(in: 1...10))"
     }
     
 }
