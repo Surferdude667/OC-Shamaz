@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet var questionLabel: UILabel!
+    @IBOutlet var playerLabel: UILabel!
     
     
     //  Generates a random sentence from either the past or for the future based on the input.
@@ -45,6 +46,16 @@ class ViewController: UIViewController {
         
         return result
     }
+    
+    // Selects a random number that is used to select a player
+    func selectPlayer() -> String {
+        var players = [String]()
+        for n in 1...10 {
+            players.append("\(n)")
+        }
+        return players.randomElement()!
+    }
+    
 
     @IBAction func pastButton(_ sender: Any) {
         questionLabel.text = generateSentence(futureOrPast: "past")
@@ -52,6 +63,10 @@ class ViewController: UIViewController {
     
     @IBAction func futureButton(_ sender: Any) {
         questionLabel.text = generateSentence(futureOrPast: "future")
+    }
+    
+    @IBAction func playerButton(_ sender: Any) {
+        playerLabel.text = selectPlayer()
     }
     
 }
