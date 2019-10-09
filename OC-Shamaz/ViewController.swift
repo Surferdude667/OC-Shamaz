@@ -56,8 +56,10 @@ class ViewController: UIViewController {
         questionLabel.text = generateSentence(futureOrPast: "future")
     }
     
+    
     @IBAction func playerButton(_ sender: Any) {
         playerLabel.text = "\(Int.random(in: 1...10))"
+        questionLabel.text = "Choose a question"
     }
     
 }
