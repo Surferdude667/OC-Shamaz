@@ -10,6 +10,11 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    enum time {
+        case future
+        case past
+    }
+    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
@@ -20,7 +25,7 @@ class ViewController: UIViewController {
     
     //  Generates a random sentence from either the past or for the future based on the input.
     //  The function accepts either "past" or "future" as an argument.
-    func generateSentence(futureOrPast: String) -> String {
+    func generateSentence(futureOrPast: time) -> String {
         let futureSentences = ["Where do you see yourself in", "Do you have kids within", "What is your goal in", "How much moeny do you plan to have in", "In what career are you in"]
         let pastSentences = ["What was the best you did", "What was the worst you did", "What did you do for others", "Did you have a drink", "Your favorite song", "Greatest achievement"]
         var sentences = [String]()
@@ -29,10 +34,10 @@ class ViewController: UIViewController {
         var ago = ""
 
         //  Check if the request is on "future" or "past" and asigns the propper data to the variables.
-        if futureOrPast == "past" {
+        if futureOrPast == .past {
             ago = " ago"
             sentences = pastSentences
-        } else if futureOrPast == "future" {
+        } else if futureOrPast == .future {
             sentences = futureSentences
         }
         
@@ -53,11 +58,11 @@ class ViewController: UIViewController {
     
     
     @IBAction func pastButton(_ sender: Any) {
-        questionLabel.text = generateSentence(futureOrPast: "past")
+        questionLabel.text = generateSentence(futureOrPast: .past)
     }
     
     @IBAction func futureButton(_ sender: Any) {
-        questionLabel.text = generateSentence(futureOrPast: "future")
+        questionLabel.text = generateSentence(futureOrPast: .future)
     }
     
     
